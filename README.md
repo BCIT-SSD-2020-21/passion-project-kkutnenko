@@ -5,7 +5,7 @@ I am developing an online-based personal budgeting tool. The user would be able 
 
 The project core will be developed using React, Cognito, AWS API's and Dynamo DB. Nice to have features will be implemented using Nivo Rocks and react-csv-reader libraries if time permits
 
-## MILESTONES
+## Milestones
 
 ### Milestone 1:
 - Users can register and login;
@@ -18,5 +18,9 @@ The project core will be developed using React, Cognito, AWS API's and Dynamo DB
 - Users can view basic variance analytics.
 
 ### Milestone 3:
+- Users can selelect certain expenses to be analyzed;
+- Users can create charts to see trends in expenses and how actuals differ from plan.
 
 ### Milestone 4:
+- Users can export budgets to text files.
+- Users can inport bank statements for automatic actuals population.
