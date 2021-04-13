@@ -3,7 +3,7 @@
 ## Introduction
 I am developing an online-based personal budgeting tool. The user would be able to create monthly budgets for different types of expenses. When the month is over the user will need to update selected budget with actual expenses and then will have access to basic variance calculations.
 
-The project core will be developed using React, Cognito, AWS API's and Dynamo DB. Nice to have features will be implemented using Nivo Rocks and react-csv-reader libraries if time permits
+The project core will be developed using React, Cognito, AWS API's and Dynamo DB. Nice to have features will be implemented using Nivo Rocks and react-csv-reader libraries if time permits.
 
 ## Milestones
 
