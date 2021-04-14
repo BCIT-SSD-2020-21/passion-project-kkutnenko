@@ -34,31 +34,13 @@ function App() {
   return (
     <Router>
       <Header auth={isAuthenticated} authenticate={authenticateUser}></Header>
-      <main style = {{marginTop: 30}}></main>
-      <Tabs></Tabs>
+      <main style = {{marginTop: 30}}></main>      
         <Switch>          
           <Route path="/login">
             <Login authenticate={authenticateUser}></Login>
           </Route>
-          <Route path="/images">
-
-            <p>Images</p>
-          </Route>
-          <Route path="/links">
-            <LinksPage></LinksPage>
-          </Route>
-          {/* <Route path="/todos">
-            <ToDo user = {user}></ToDo>
-          </Route> */}
-          <Route path="/notes">
-            <Notes></Notes>
-          </Route>
-          <GuardedRoute path='/profile' auth={isAuthenticated} component={UserProfile} user={user}/>
-          <Route path="/">
-
-            {/* <Home></Home> */}
-            <ToDo user = {user}></ToDo>
-          </Route>
+          
+          
         </Switch>
     </Router>
     
