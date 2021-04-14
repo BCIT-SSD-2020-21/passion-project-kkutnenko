@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import logo from '../../assets/logoWhiteCrop.png'
 import { useHistory } from "react-router-dom"
 import {Auth} from 'aws-amplify'
 
@@ -30,8 +29,7 @@ export default function ButtonAppBar({auth, authenticate}) {
       <AppBar position="static">
         <Toolbar>         
           <Typography variant="h6" className={classes.title}>
-              <a href="/">
-                <img id="logo" src={logo} alt="logo"/>
+              <a href="/">               
               </a>
           </Typography>          
           <Button color="inherit" 
