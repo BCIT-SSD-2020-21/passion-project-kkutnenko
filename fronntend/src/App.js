@@ -39,7 +39,9 @@ function App() {
           <Route path="/login">
             <Login authenticate={authenticateUser}></Login>
           </Route>
-          
+          <Route path="/">
+            <Login authenticate={authenticateUser}></Login>
+          </Route>
           
         </Switch>
     </Router>
