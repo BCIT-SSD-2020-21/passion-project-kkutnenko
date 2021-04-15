@@ -1,79 +1,46 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import { DataGrid } from '@material-ui/data-grid';
 
 export default function Home() {
 
     const API_URL = ' https://omxhrbkahl.execute-api.us-west-1.amazonaws.com/prod'
 
     const [budgets, setBudgets] = React.useState([])
+    const [isLoading, setIsLoading] = React.useState(false)
 
     useEffect(()=> {
-        getAllLists();              
-    }, [budgets])
+        setTimeout(() => {
+            setIsLoading(true)
+            getAllBudgets();
+        }, 0);
+                     
+        
+    }, [])
 
-    hetAllBudgets = async () => {
+    const getAllBudgets = async () => {
         fetch(`${API_URL}/budgets`)
             .then(response => response.json())
             .then(data => {
-                setBudgets(data)
+                setBudgets(data), setIsLoading(false)
                 console.log("budgets:", budgets)
             })
     }
 
-    return (
+   
+        if (isLoading) {
+            return (
+                <p>Is Loading...</p>
+            )
+        }    
         
-        <Grid container spacing ={3} className={classes.root}>            
-        <Button className={classes.button} variant="contained" color="primary" href="#contained-buttons" onClick={NewList}>
-            Add New Budget
-        </Button>
-        {
-            _.sortBy(budgets,"id")
-            .map(budget => (
-               
-                <Card key={budget.id} className={classes.card} variant="outlined">
-                     
-                <CardContent>
-                <form className={classes.header} noValidate autoComplete="off">            
-                    <TextField id="basic" placeholder="To Do List" defaultValue={toDoList.description} variant="outlined"  onChange = {event => listNameInput(event, toDoList.id, toDoList)}/>
-                </form>                  
-                        {   
-                            toDoList.items &&
-                            toDoList.items.map((item, index) => (
-                                <form key={ `item-${index}`} noValidate autoComplete="off"> 
-                                    <Checkbox
-                                        checked={toDoList.isDone[index]}
-                                        onChange={handleChange}                        
-                                        color="primary"
-                                        inputProps={{ 'aria-label': 'secondary checkbox' }}
-                                    />                
-                                    <TextField id="standard-basic" defaultValue={item}  onChange = {event => itemNameInput(event, item, toDoList.items, index, toDoList, toDoList.id)}/>
-                                    <IconButton onClick={() => deleteListItem(toDoList.id,index)} aria-label="delete" className={classes.margin}>
-                                        <DeleteIcon />
-                                    </IconButton>
-                                </form>
-                            ))
-                        }   
-                            <IconButton onClick={() => putListItem(toDoList.id)} style={{fill: "#4054b4"}}>                         
-                                <AddCircleRoundedIcon  />                
-                            </IconButton>
-                    
-                </CardContent>
-                
-                <CardActions>
-                    
-                        <Button className={classes.buttonDiv} variant="contained" color="secondary" 
-                        onClick={() => deleteListById(toDoList.id)}
-                        >
-                            Delete
-                        </Button>                      
-                    
-                </CardActions>
-                
-                </Card>
-            ))
+        else {
+            return(
+                <p>Loaded</p>
+            )
         }
-       
-    </Grid>
-  );
+        
+  
 }
 
 const useStyles = makeStyles({

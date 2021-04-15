@@ -11,12 +11,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     display: "flex",
+    background: "#2E3B55"
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
+    color: "#FFFFFF"
   },
 }))
 
@@ -26,11 +28,10 @@ export default function ButtonAppBar({auth, authenticate}) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: '#0C71E0' }}>
         <Toolbar>         
-          <Typography variant="h6" className={classes.title}>
-              <a href="/">               
-              </a>
+          <Typography variant="h6" className={classes.title} >             
+                  Budgetize             
           </Typography>          
           <Button color="inherit" 
           onClick={()=> {

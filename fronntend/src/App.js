@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './App.css';
 import Login from './components/Login';
 import Header from './components/Header'
+import Home from './components/Home'
 import {Auth} from 'aws-amplify'
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
             <Login authenticate={authenticateUser}></Login>
           </Route>
           <Route path="/">
-            <Login authenticate={authenticateUser}></Login>
+            <Home authenticate={authenticateUser}></Home>
           </Route>
           
         </Switch>
